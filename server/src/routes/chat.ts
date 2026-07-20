@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { retrieveRelevantChunks } from "../services/retrieval";
-import { generateAnswer } from "../services/llmClient";
-import { getSession, saveSession, listSessions } from "../storage/sessionStore";
+import { retrieveRelevantChunks } from "@/services/retrieval";
+import { generateAnswer } from "@/services/llmClient";
+import { getSession, saveSession, listSessions } from "@/storage/sessionStore";
 
 export const chatRouter = Router();
 

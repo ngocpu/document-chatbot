@@ -46,11 +46,7 @@ function tokenize(text: string): string[] {
   );
 }
 
-/**
- * Scores each chunk by counting overlapping keywords with the question
- * (bag-of-words match, no vector/embedding). Score is the number of query
- * keywords found in the chunk, so it is comparable across chunks.
- */
+/** Scores chunks by count of overlapping keywords with the question (bag-of-words match). */
 export function retrieveRelevantChunks(
   question: string,
   chunks: Chunk[],

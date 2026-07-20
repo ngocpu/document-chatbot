@@ -5,12 +5,10 @@ export interface Chunk {
 }
 
 export interface ChunkingOptions {
-  /** Target chunk size in words. Chosen based on Arize AI benchmark: 300-500 words/chunk
-   * gives the best retrieval accuracy tradeoff (see docs/chuong-1-tong-quan-de-tai.md, 1.2.3). */
+  /** Target chunk size in words (see docs/chuong-1-tong-quan-de-tai.md, 1.2.3). */
   minWords?: number;
   maxWords?: number;
-  /** Number of words repeated at the start of the next chunk, so a fact split across a
-   * chunk boundary is not lost to retrieval. */
+  /** Words repeated at the start of the next chunk to preserve boundary context. */
   overlapWords?: number;
 }
 
@@ -31,11 +29,7 @@ function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
-/**
- * Splits raw document text into overlapping word-count-bounded chunks.
- * Splits on sentence boundaries so chunks stay near maxWords without cutting a sentence
- * in half, and carries the last `overlapWords` words of a chunk into the next one.
- */
+/** Splits text into overlapping chunks, breaking on sentence boundaries near maxWords. */
 export function chunkText(text: string, options: ChunkingOptions = {}): Chunk[] {
   const { minWords, maxWords, overlapWords } = {
     ...DEFAULT_OPTIONS,
@@ -79,9 +73,8 @@ export function chunkText(text: string, options: ChunkingOptions = {}): Chunk[] 
 
   flush();
 
-  // Merge a final chunk that's too small (below minWords) into the previous one,
-  // so the last chunk isn't a near-empty leftover. The last chunk's leading words are
-  // the overlap already copied from prev's tail, so drop them before concatenating.
+  // Merge an undersized last chunk into prev, dropping its leading overlap words
+  // (already a copy of prev's tail) so they aren't duplicated.
   if (chunks.length > 1) {
     const last = chunks[chunks.length - 1];
     if (last.wordCount < minWords / 2) {

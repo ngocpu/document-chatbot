@@ -1,8 +1,8 @@
 import { Router } from "express";
 import multer from "multer";
-import { extractText, isSupportedMimeType } from "../services/extractText";
-import { chunkText } from "../services/chunking";
-import { createSession } from "../storage/sessionStore";
+import { extractText, isSupportedMimeType } from "@/services/extractText";
+import { chunkText } from "@/services/chunking";
+import { createSession } from "@/storage/sessionStore";
 
 const upload = multer({ storage: multer.memoryStorage() });
 

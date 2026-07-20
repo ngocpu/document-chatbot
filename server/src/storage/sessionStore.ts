@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { randomUUID } from "crypto";
-import type { Chunk } from "../services/chunking";
+import type { Chunk } from "@/services/chunking";
 
 export interface SourceRef {
   index: number;
