@@ -1,7 +1,13 @@
 import { Router } from "express";
 import { retrieveRelevantChunks } from "@/services/retrieval";
 import { generateAnswer } from "@/services/llmClient";
-import { getSession, saveSession, listSessions } from "@/storage/sessionStore";
+import {
+  getSession,
+  saveSession,
+  listSessions,
+  renameSession,
+  deleteSession,
+} from "@/storage/sessionStore";
 
 export const chatRouter = Router();
 
@@ -17,6 +23,30 @@ chatRouter.get("/sessions/:id", async (req, res) => {
     return;
   }
   res.json(session);
+});
+
+chatRouter.patch("/sessions/:id", async (req, res) => {
+  const { fileName } = (req.body ?? {}) as { fileName?: string };
+  if (!fileName) {
+    res.status(400).json({ error: "fileName is required" });
+    return;
+  }
+
+  const session = await renameSession(req.params.id, fileName);
+  if (!session) {
+    res.status(404).json({ error: "Session not found" });
+    return;
+  }
+  res.json(session);
+});
+
+chatRouter.delete("/sessions/:id", async (req, res) => {
+  const deleted = await deleteSession(req.params.id);
+  if (!deleted) {
+    res.status(404).json({ error: "Session not found" });
+    return;
+  }
+  res.status(204).send();
 });
 
 chatRouter.post("/chat", async (req, res) => {

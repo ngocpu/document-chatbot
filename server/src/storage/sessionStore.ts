@@ -61,6 +61,23 @@ export async function saveSession(session: Session): Promise<void> {
   await fs.writeFile(sessionPath(session.id), JSON.stringify(session, null, 2), "utf-8");
 }
 
+export async function renameSession(id: string, fileName: string): Promise<Session | null> {
+  const session = await getSession(id);
+  if (!session) return null;
+  session.fileName = fileName;
+  await saveSession(session);
+  return session;
+}
+
+export async function deleteSession(id: string): Promise<boolean> {
+  try {
+    await fs.unlink(sessionPath(id));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export async function listSessions(): Promise<SessionSummary[]> {
   const files = await fs.readdir(SESSIONS_DIR);
   const sessions = await Promise.all(

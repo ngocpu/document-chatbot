@@ -1,0 +1,1 @@
+{"root":["./src/server.ts","./src/routes/chat.ts","./src/routes/upload.ts","./src/services/chunking.ts","./src/services/extracttext.ts","./src/services/llmclient.ts","./src/services/retrieval.ts","./src/storage/sessionstore.ts"],"version":"5.9.3"}
