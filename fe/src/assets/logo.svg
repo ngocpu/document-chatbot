@@ -1,0 +1,24 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect x="10" y="6" width="24" height="34" rx="4" stroke="currentColor" stroke-width="2.4" />
+  <path
+    d="M26 6v6a2 2 0 0 0 2 2h6"
+    stroke="currentColor"
+    stroke-width="2.4"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <line x1="15" y1="18" x2="27" y2="18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+  <line x1="15" y1="23" x2="27" y2="23" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+  <line x1="15" y1="28" x2="21" y2="28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+  <path
+    d="M16 40v5l5-5"
+    stroke="currentColor"
+    stroke-width="2.4"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+  <path
+    d="M29 29.5 30.3 32.2 33 33.5 30.3 34.8 29 37.5 27.7 34.8 25 33.5 27.7 32.2 29 29.5Z"
+    fill="currentColor"
+  />
+</svg>

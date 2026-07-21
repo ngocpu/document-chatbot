@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "AskDoc",
+    "description": "AI 文档助手"
+  },
+  "sidebar": {
+    "newChat": "新对话",
+    "recents": "最近",
+    "sessionMenu": "选项",
+    "rename": "重命名",
+    "delete": "删除",
+    "deleteTitle": "删除对话",
+    "deleteConfirm": "删除此对话？此操作无法撤销。",
+    "cancel": "取消"
+  },
+  "chat": {
+    "heroHeading": "向你的文档提问",
+    "inputPlaceholder": "输入关于文档的问题...",
+    "attachLabel": "添加文档",
+    "sendLabel": "发送问题",
+    "uploadFirstPlaceholder": "上传文档以开始提问...",
+    "sourcesLabel": "{{count}} 个引用来源",
+    "disclaimer": "AskDoc 可能会出错，请核实重要信息。"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "zh": "中文"
+  }
+}

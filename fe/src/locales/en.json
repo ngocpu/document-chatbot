@@ -1,0 +1,36 @@
+{
+  "app": {
+    "title": "AskDoc",
+    "description": "AI Document Assistant"
+  },
+  "sidebar": {
+    "newChat": "New chat",
+    "recents": "Recents",
+    "sessionMenu": "Options",
+    "rename": "Rename",
+    "delete": "Delete",
+    "deleteTitle": "Delete chat",
+    "deleteConfirm": "Delete this chat? This action cannot be undone.",
+    "cancel": "Cancel"
+  },
+  "chat": {
+    "heroHeading": "Ask your document anything",
+    "inputPlaceholder": "Ask a question about your document...",
+    "attachLabel": "Attach document",
+    "sendLabel": "Send question",
+    "uploadFirstPlaceholder": "Upload a document to start asking questions...",
+    "sourcesLabel_one": "{{count}} source",
+    "sourcesLabel_other": "{{count}} sources",
+    "disclaimer": "AskDoc can make mistakes. Please double-check important information."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "zh": "中文"
+  }
+}
